@@ -1,0 +1,31 @@
+{
+  "name": "abgeo/nbg-currency",
+  "description": "Library for getting data from National Bank of Georgia (NBG)'s API.",
+  "type": "library",
+  "keywords": [
+    "banking",
+    "currency",
+    "API",
+    "NBG"
+  ],
+  "homepage": "https://github.com/ABGEO07/nbg-currency",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "ABGEO",
+      "email": "takalandzet@gmail.com",
+      "homepage": "https://www.abgeo.dev",
+      "role": "Developer"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "ext-soap": "*"
+  },
+  "require-dev": {},
+  "autoload": {
+    "psr-4": {
+      "ABGEO\\": "src/"
+    }
+  }
+}
