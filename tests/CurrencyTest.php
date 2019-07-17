@@ -4,7 +4,7 @@ use ABGEO\NBG\Currency;
 use ABGEO\NBG\Exception\InvalidCurrencyException;
 use PHPUnit\Framework\TestCase;
 
-final class CurrencytTestTest extends TestCase
+final class CurrencyTest extends TestCase
 {
     public function testCurrencyConstants(): void
     {
