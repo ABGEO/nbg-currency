@@ -1,11 +1,17 @@
 <?php
 
+// Include Composer Autoloader.
 require_once __DIR__ . '/../vendor/autoload.php';
 
+// Import namespace.
 use ABGEO\NBG\Currency;
 
+// Create new Currency class object for USD Currency.
 $USD = new Currency(Currency::CURRENCY_USD);
+// Create new Currency class object for RUB Currency.
 $RUB = new Currency(Currency::CURRENCY_RUB);
+
+// Print results.
 
 echo "UDS: \n\n";
 echo "Currency: \t{$USD->getCurrency()}\n";

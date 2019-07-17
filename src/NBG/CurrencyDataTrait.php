@@ -5,68 +5,157 @@ namespace ABGEO\NBG;
 /**
  * Trait CurrencyDataTrait
  *
- * @package ABGEO\NBG
+ * @category Library
+ * @package  ABGEO\NBG
+ * @author   Temuri Takalandze <takalandzet@gmail.com>
+ * @license  MIT https://github.com/ABGEO07/nbg-currency/blob/master/LICENSE
+ * @link     https://github.com/ABGEO07/nbg-currency
  */
 trait CurrencyDataTrait
 {
+    /**
+     * Currency value from API.
+     *
+     * @var float
+     */
     private $_currency;
 
+    /**
+     * Currency description from API.
+     *
+     * @var string
+     */
     private $_description;
 
+    /**
+     * Currency change value from API.
+     *
+     * @var double
+     */
     private $_change;
 
+    /**
+     * Currency change rate from API.
+     *
+     * Values:
+     *      -1 - decreased
+     *      0 - unchanged
+     *      1 - increased
+     *
+     * @var int
+     */
     private $_rate;
 
+    /**
+     * Currency date from API.
+     *
+     * @var \DateTime
+     */
     private $_date;
 
-    protected function setCurrency($currency): self
+    /**
+     * Set Currency value.
+     *
+     * @param float $currency Currency value from API.
+     *
+     * @return \ABGEO\NBG\CurrencyDataTrait
+     */
+    protected function setCurrency(float $currency): self
     {
         $this->_currency = $currency;
 
         return $this;
     }
 
-    public function getCurrency()
+    /**
+     * Get Currency value.
+     *
+     * @return float
+     */
+    public function getCurrency(): float
     {
         return $this->_currency;
     }
 
-    protected function setDescription($description): self
+    /**
+     * Set Currency description.
+     *
+     * @param string $description Currency description from API.
+     *
+     * @return \ABGEO\NBG\CurrencyDataTrait
+     */
+    protected function setDescription(string $description): self
     {
         $this->_description = $description;
 
         return $this;
     }
 
-    public function getDescription()
+    /**
+     * Get Currency description.
+     *
+     * @return string Currency description.
+     */
+    public function getDescription(): string
     {
         return $this->_description;
     }
 
-    protected function setChange($change): self
+    /**
+     * Set Currency change rate.
+     *
+     * @param float $change Currency change rate.
+     *
+     * @return \ABGEO\NBG\CurrencyDataTrait
+     */
+    protected function setChange(float $change): self
     {
         $this->_change = $change;
 
         return $this;
     }
 
-    public function getChange()
+    /**
+     * Get Currency change rate.
+     *
+     * @return float Currency change rate.
+     */
+    public function getChange(): float
     {
         return $this->_change;
     }
 
-    protected function setRate($rate): self
+    /**
+     * Set Currency change rate.
+     *
+     * @param int $rate Currency change rate.
+     *
+     * @return \ABGEO\NBG\CurrencyDataTrait
+     */
+    protected function setRate(int $rate): self
     {
         $this->_rate = $rate;
 
         return $this;
     }
 
-    public function getRate()
+    /**
+     * Get Currency change rate.
+     *
+     * @return int Currency change rate.
+     */
+    public function getRate(): int
     {
         return $this->_rate;
     }
 
+    /**
+     * Set Currency date.
+     *
+     * @param \DateTime $date Currency date.
+     *
+     * @return \ABGEO\NBG\CurrencyDataTrait
+     */
     protected function setDate(\DateTime $date): self
     {
         $this->_date = $date;
@@ -74,6 +163,11 @@ trait CurrencyDataTrait
         return $this;
     }
 
+    /**
+     * Get Currency date.
+     *
+     * @return \DateTime Currency date.
+     */
     public function getDate(): \DateTime
     {
         return $this->_date;

@@ -9,18 +9,38 @@ use SoapClient;
 /**
  * Class Currency
  *
- * @package ABGEO\NBG
+ * @category Library
+ * @package  ABGEO\NBG
+ * @author   Temuri Takalandze <takalandzet@gmail.com>
+ * @license  MIT https://github.com/ABGEO07/nbg-currency/blob/master/LICENSE
+ * @link     https://github.com/ABGEO07/nbg-currency
  */
 class Currency
 {
     use CurrencyDataTrait;
 
+    /**
+     * NBG API url.
+     *
+     * @var string
+     */
     private $_API = 'http://nbg.gov.ge/currency.wsdl';
 
+    /**
+     * SoapClient object.
+     *
+     * @var \SoapClient
+     */
     private $_client;
 
+    /**
+     * Currency code.
+     *
+     * @var string
+     */
     private $_currency;
 
+    // Define Currency codes.
     const CURRENCY_AED = 'AED';
     const CURRENCY_AMD = 'AMD';
     const CURRENCY_AUD = 'AUD';
@@ -70,7 +90,7 @@ class Currency
      * @param string $currency Currency code.
      *
      * @throws \SoapFault
-     * @throws InvalidCurrencyException
+     * @throws \ABGEO\NBG\Exception\InvalidCurrencyException
      */
     public function __construct(string $currency)
     {
@@ -84,6 +104,7 @@ class Currency
 
         $this->_currency = $currency;
 
+        // Get initial data from API.
         $this->_init();
     }
 
@@ -103,10 +124,11 @@ class Currency
             $client->GetDate($currency)
         );
 
-        $this->setCurrency($client->GetCurrency($currency))
+        // Fill object with data from API.
+        $this->setCurrency((float)$client->GetCurrency($currency))
             ->setDescription($client->GetCurrencyDescription($currency))
-            ->setChange($client->GetCurrencyChange($currency))
-            ->setRate($client->GetCurrencyRate($currency))
+            ->setChange((float)$client->GetCurrencyChange($currency))
+            ->setRate((int)$client->GetCurrencyRate($currency))
             ->setDate($currencyDate);
     }
 }
