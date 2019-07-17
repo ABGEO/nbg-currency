@@ -1,7 +1,7 @@
 # nbg-currency
 PHP Library for getting data from [National Bank of Georgia (NBG)'s API](http://nbg.ge/api.html).
 
-* Library maintainer [ABGEO](jhttps://abgeo.dev)
+* Library maintainer [ABGEO](https://abgeo.dev)
 * Library on [GitHub](https://github.com/ABGEO07/nbg-currency)
 * Library on [Packagist](https://packagist.org/packages/abgeo/nbg-currency)
 
