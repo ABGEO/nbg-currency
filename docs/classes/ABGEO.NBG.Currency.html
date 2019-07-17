@@ -1,0 +1,1943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/ABGEO.html">\ABGEO</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1123899842"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1123899842" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-548946563"></a>
+                                <a href="../namespaces/ABGEO.html" style="margin-left: 30px; padding-left: 0">ABGEO</a>
+            </div>
+            <div id="namespace-548946563" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1398614423"></a>
+                                <a href="../namespaces/ABGEO.NBG.html" style="margin-left: 30px; padding-left: 0">NBG</a>
+            </div>
+            <div id="namespace-1398614423" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1926545050"></a>
+                                <a href="../namespaces/ABGEO.NBG.Exception.html" style="margin-left: 30px; padding-left: 0">Exception</a>
+            </div>
+            <div id="namespace-1926545050" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/ABGEO.NBG.Exception.InvalidCurrencyException.html">InvalidCurrencyException</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                            <li class="trait"><a href="../classes/ABGEO.NBG.CurrencyDataTrait.html">CurrencyDataTrait</a></li>
+                                                                            <li class="class"><a href="../classes/ABGEO.NBG.Currency.html">Currency</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/ABGEO.NBG.html">\ABGEO\NBG</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\ABGEO\NBG</small>Currency</h1>
+                    <p><em>Class Currency</em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/ABGEO.NBG.CurrencyDataTrait.html#method_getCurrency" class="">getCurrency()</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.CurrencyDataTrait.html#method_getDescription" class="">getDescription()</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.CurrencyDataTrait.html#method_getChange" class="">getChange()</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.CurrencyDataTrait.html#method_getRate" class="">getRate()</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.CurrencyDataTrait.html#method_getDate" class="">getDate()</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#method___construct" class="">__construct()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_AED" class="">CURRENCY_AED</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_AMD" class="">CURRENCY_AMD</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_AUD" class="">CURRENCY_AUD</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_AZN" class="">CURRENCY_AZN</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_BGN" class="">CURRENCY_BGN</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_BYR" class="">CURRENCY_BYR</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_CAD" class="">CURRENCY_CAD</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_CHF" class="">CURRENCY_CHF</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_CNY" class="">CURRENCY_CNY</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_CZK" class="">CURRENCY_CZK</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_DKK" class="">CURRENCY_DKK</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_EEK" class="">CURRENCY_EEK</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_EGP" class="">CURRENCY_EGP</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_EUR" class="">CURRENCY_EUR</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_GBP" class="">CURRENCY_GBP</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_HKD" class="">CURRENCY_HKD</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_HUF" class="">CURRENCY_HUF</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_ILS" class="">CURRENCY_ILS</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_INR" class="">CURRENCY_INR</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_IRR" class="">CURRENCY_IRR</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_ISK" class="">CURRENCY_ISK</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_JPY" class="">CURRENCY_JPY</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_KGS" class="">CURRENCY_KGS</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_KWD" class="">CURRENCY_KWD</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_KZT" class="">CURRENCY_KZT</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_LTL" class="">CURRENCY_LTL</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_LVL" class="">CURRENCY_LVL</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_MDL" class="">CURRENCY_MDL</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_NOK" class="">CURRENCY_NOK</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_NZD" class="">CURRENCY_NZD</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_PLN" class="">CURRENCY_PLN</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_RON" class="">CURRENCY_RON</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_RSD" class="">CURRENCY_RSD</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_RUB" class="">CURRENCY_RUB</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_SEK" class="">CURRENCY_SEK</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_SGD" class="">CURRENCY_SGD</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_TJS" class="">CURRENCY_TJS</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_TMT" class="">CURRENCY_TMT</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_TRY" class="">CURRENCY_TRY</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_UAH" class="">CURRENCY_UAH</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_USD" class="">CURRENCY_USD</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#constant_CURRENCY_UZS" class="">CURRENCY_UZS</a><br />
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <a href="../classes/ABGEO.NBG.CurrencyDataTrait.html#method_setCurrency" class="">setCurrency()</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.CurrencyDataTrait.html#method_setDescription" class="">setDescription()</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.CurrencyDataTrait.html#method_setChange" class="">setChange()</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.CurrencyDataTrait.html#method_setRate" class="">setRate()</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.CurrencyDataTrait.html#method_setDate" class="">setDate()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#method__init" class="">_init()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#property__currency" class="">$_currency</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.CurrencyDataTrait.html#property__description" class="">$_description</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.CurrencyDataTrait.html#property__change" class="">$_change</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.CurrencyDataTrait.html#property__rate" class="">$_rate</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.CurrencyDataTrait.html#property__date" class="">$_date</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#property__API" class="">$_API</a><br />
+                                                                    <a href="../classes/ABGEO.NBG.Currency.html#property__client" class="">$_client</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/Currency.html"><div class="path-wrapper">Currency.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">ABGEO\NBG</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\ABGEO\NBG\Currency</div>
+                            </dd>
+
+                        
+                                                                                    <dt>Uses traits</dt>
+                                                        <dd>
+                                <a href="../classes/ABGEO.NBG.CurrencyDataTrait.html">                                    <div class="namespace-wrapper">\ABGEO\NBG\CurrencyDataTrait</div>
+                                </a>                            </dd>
+                        
+                        
+                                                                            <dt>See also</dt>
+                                                                                        <dd><a href="https://github.com/ABGEO07/nbg-currency"><span class="namespace-wrapper">https://github.com/ABGEO07/nbg-currency</span></a></dd>
+                                                    
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr>
+                            <th>
+                                category
+                            </th>
+                            <td>
+                                                                    <p>Library</p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                author
+                            </th>
+                            <td>
+                                                                    <p>Temuri Takalandze <a href="mailto:takalandzet@gmail.com">takalandzet@gmail.com</a></p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                license
+                            </th>
+                            <td>
+                                                                    <p>MIT <a href="https://github.com/ABGEO07/nbg-currency/blob/master/LICENSE">https://github.com/ABGEO07/nbg-currency/blob/master/LICENSE</a></p>
+                                                            </td>
+                        </tr>
+                                        </table>
+                </aside>
+            </div>
+
+                                    <a id="constants" name="constants"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Constants</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_AED" name="constant_CURRENCY_AED" class="anchor"></a>
+            <article id="constant_CURRENCY_AED" class="constant">
+                <h3 class="">CURRENCY_AED</h3>
+                <pre class="signature">CURRENCY_AED</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_AMD" name="constant_CURRENCY_AMD" class="anchor"></a>
+            <article id="constant_CURRENCY_AMD" class="constant">
+                <h3 class="">CURRENCY_AMD</h3>
+                <pre class="signature">CURRENCY_AMD</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_AUD" name="constant_CURRENCY_AUD" class="anchor"></a>
+            <article id="constant_CURRENCY_AUD" class="constant">
+                <h3 class="">CURRENCY_AUD</h3>
+                <pre class="signature">CURRENCY_AUD</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_AZN" name="constant_CURRENCY_AZN" class="anchor"></a>
+            <article id="constant_CURRENCY_AZN" class="constant">
+                <h3 class="">CURRENCY_AZN</h3>
+                <pre class="signature">CURRENCY_AZN</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_BGN" name="constant_CURRENCY_BGN" class="anchor"></a>
+            <article id="constant_CURRENCY_BGN" class="constant">
+                <h3 class="">CURRENCY_BGN</h3>
+                <pre class="signature">CURRENCY_BGN</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_BYR" name="constant_CURRENCY_BYR" class="anchor"></a>
+            <article id="constant_CURRENCY_BYR" class="constant">
+                <h3 class="">CURRENCY_BYR</h3>
+                <pre class="signature">CURRENCY_BYR</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_CAD" name="constant_CURRENCY_CAD" class="anchor"></a>
+            <article id="constant_CURRENCY_CAD" class="constant">
+                <h3 class="">CURRENCY_CAD</h3>
+                <pre class="signature">CURRENCY_CAD</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_CHF" name="constant_CURRENCY_CHF" class="anchor"></a>
+            <article id="constant_CURRENCY_CHF" class="constant">
+                <h3 class="">CURRENCY_CHF</h3>
+                <pre class="signature">CURRENCY_CHF</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_CNY" name="constant_CURRENCY_CNY" class="anchor"></a>
+            <article id="constant_CURRENCY_CNY" class="constant">
+                <h3 class="">CURRENCY_CNY</h3>
+                <pre class="signature">CURRENCY_CNY</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_CZK" name="constant_CURRENCY_CZK" class="anchor"></a>
+            <article id="constant_CURRENCY_CZK" class="constant">
+                <h3 class="">CURRENCY_CZK</h3>
+                <pre class="signature">CURRENCY_CZK</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_DKK" name="constant_CURRENCY_DKK" class="anchor"></a>
+            <article id="constant_CURRENCY_DKK" class="constant">
+                <h3 class="">CURRENCY_DKK</h3>
+                <pre class="signature">CURRENCY_DKK</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_EEK" name="constant_CURRENCY_EEK" class="anchor"></a>
+            <article id="constant_CURRENCY_EEK" class="constant">
+                <h3 class="">CURRENCY_EEK</h3>
+                <pre class="signature">CURRENCY_EEK</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_EGP" name="constant_CURRENCY_EGP" class="anchor"></a>
+            <article id="constant_CURRENCY_EGP" class="constant">
+                <h3 class="">CURRENCY_EGP</h3>
+                <pre class="signature">CURRENCY_EGP</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_EUR" name="constant_CURRENCY_EUR" class="anchor"></a>
+            <article id="constant_CURRENCY_EUR" class="constant">
+                <h3 class="">CURRENCY_EUR</h3>
+                <pre class="signature">CURRENCY_EUR</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_GBP" name="constant_CURRENCY_GBP" class="anchor"></a>
+            <article id="constant_CURRENCY_GBP" class="constant">
+                <h3 class="">CURRENCY_GBP</h3>
+                <pre class="signature">CURRENCY_GBP</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_HKD" name="constant_CURRENCY_HKD" class="anchor"></a>
+            <article id="constant_CURRENCY_HKD" class="constant">
+                <h3 class="">CURRENCY_HKD</h3>
+                <pre class="signature">CURRENCY_HKD</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_HUF" name="constant_CURRENCY_HUF" class="anchor"></a>
+            <article id="constant_CURRENCY_HUF" class="constant">
+                <h3 class="">CURRENCY_HUF</h3>
+                <pre class="signature">CURRENCY_HUF</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_ILS" name="constant_CURRENCY_ILS" class="anchor"></a>
+            <article id="constant_CURRENCY_ILS" class="constant">
+                <h3 class="">CURRENCY_ILS</h3>
+                <pre class="signature">CURRENCY_ILS</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_INR" name="constant_CURRENCY_INR" class="anchor"></a>
+            <article id="constant_CURRENCY_INR" class="constant">
+                <h3 class="">CURRENCY_INR</h3>
+                <pre class="signature">CURRENCY_INR</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_IRR" name="constant_CURRENCY_IRR" class="anchor"></a>
+            <article id="constant_CURRENCY_IRR" class="constant">
+                <h3 class="">CURRENCY_IRR</h3>
+                <pre class="signature">CURRENCY_IRR</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_ISK" name="constant_CURRENCY_ISK" class="anchor"></a>
+            <article id="constant_CURRENCY_ISK" class="constant">
+                <h3 class="">CURRENCY_ISK</h3>
+                <pre class="signature">CURRENCY_ISK</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_JPY" name="constant_CURRENCY_JPY" class="anchor"></a>
+            <article id="constant_CURRENCY_JPY" class="constant">
+                <h3 class="">CURRENCY_JPY</h3>
+                <pre class="signature">CURRENCY_JPY</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_KGS" name="constant_CURRENCY_KGS" class="anchor"></a>
+            <article id="constant_CURRENCY_KGS" class="constant">
+                <h3 class="">CURRENCY_KGS</h3>
+                <pre class="signature">CURRENCY_KGS</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_KWD" name="constant_CURRENCY_KWD" class="anchor"></a>
+            <article id="constant_CURRENCY_KWD" class="constant">
+                <h3 class="">CURRENCY_KWD</h3>
+                <pre class="signature">CURRENCY_KWD</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_KZT" name="constant_CURRENCY_KZT" class="anchor"></a>
+            <article id="constant_CURRENCY_KZT" class="constant">
+                <h3 class="">CURRENCY_KZT</h3>
+                <pre class="signature">CURRENCY_KZT</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_LTL" name="constant_CURRENCY_LTL" class="anchor"></a>
+            <article id="constant_CURRENCY_LTL" class="constant">
+                <h3 class="">CURRENCY_LTL</h3>
+                <pre class="signature">CURRENCY_LTL</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_LVL" name="constant_CURRENCY_LVL" class="anchor"></a>
+            <article id="constant_CURRENCY_LVL" class="constant">
+                <h3 class="">CURRENCY_LVL</h3>
+                <pre class="signature">CURRENCY_LVL</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_MDL" name="constant_CURRENCY_MDL" class="anchor"></a>
+            <article id="constant_CURRENCY_MDL" class="constant">
+                <h3 class="">CURRENCY_MDL</h3>
+                <pre class="signature">CURRENCY_MDL</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_NOK" name="constant_CURRENCY_NOK" class="anchor"></a>
+            <article id="constant_CURRENCY_NOK" class="constant">
+                <h3 class="">CURRENCY_NOK</h3>
+                <pre class="signature">CURRENCY_NOK</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_NZD" name="constant_CURRENCY_NZD" class="anchor"></a>
+            <article id="constant_CURRENCY_NZD" class="constant">
+                <h3 class="">CURRENCY_NZD</h3>
+                <pre class="signature">CURRENCY_NZD</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_PLN" name="constant_CURRENCY_PLN" class="anchor"></a>
+            <article id="constant_CURRENCY_PLN" class="constant">
+                <h3 class="">CURRENCY_PLN</h3>
+                <pre class="signature">CURRENCY_PLN</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_RON" name="constant_CURRENCY_RON" class="anchor"></a>
+            <article id="constant_CURRENCY_RON" class="constant">
+                <h3 class="">CURRENCY_RON</h3>
+                <pre class="signature">CURRENCY_RON</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_RSD" name="constant_CURRENCY_RSD" class="anchor"></a>
+            <article id="constant_CURRENCY_RSD" class="constant">
+                <h3 class="">CURRENCY_RSD</h3>
+                <pre class="signature">CURRENCY_RSD</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_RUB" name="constant_CURRENCY_RUB" class="anchor"></a>
+            <article id="constant_CURRENCY_RUB" class="constant">
+                <h3 class="">CURRENCY_RUB</h3>
+                <pre class="signature">CURRENCY_RUB</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_SEK" name="constant_CURRENCY_SEK" class="anchor"></a>
+            <article id="constant_CURRENCY_SEK" class="constant">
+                <h3 class="">CURRENCY_SEK</h3>
+                <pre class="signature">CURRENCY_SEK</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_SGD" name="constant_CURRENCY_SGD" class="anchor"></a>
+            <article id="constant_CURRENCY_SGD" class="constant">
+                <h3 class="">CURRENCY_SGD</h3>
+                <pre class="signature">CURRENCY_SGD</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_TJS" name="constant_CURRENCY_TJS" class="anchor"></a>
+            <article id="constant_CURRENCY_TJS" class="constant">
+                <h3 class="">CURRENCY_TJS</h3>
+                <pre class="signature">CURRENCY_TJS</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_TMT" name="constant_CURRENCY_TMT" class="anchor"></a>
+            <article id="constant_CURRENCY_TMT" class="constant">
+                <h3 class="">CURRENCY_TMT</h3>
+                <pre class="signature">CURRENCY_TMT</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_TRY" name="constant_CURRENCY_TRY" class="anchor"></a>
+            <article id="constant_CURRENCY_TRY" class="constant">
+                <h3 class="">CURRENCY_TRY</h3>
+                <pre class="signature">CURRENCY_TRY</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_UAH" name="constant_CURRENCY_UAH" class="anchor"></a>
+            <article id="constant_CURRENCY_UAH" class="constant">
+                <h3 class="">CURRENCY_UAH</h3>
+                <pre class="signature">CURRENCY_UAH</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_USD" name="constant_CURRENCY_USD" class="anchor"></a>
+            <article id="constant_CURRENCY_USD" class="constant">
+                <h3 class="">CURRENCY_USD</h3>
+                <pre class="signature">CURRENCY_USD</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CURRENCY_UZS" name="constant_CURRENCY_UZS" class="anchor"></a>
+            <article id="constant_CURRENCY_UZS" class="constant">
+                <h3 class="">CURRENCY_UZS</h3>
+                <pre class="signature">CURRENCY_UZS</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                            
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__currency" name="property__currency" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$_currency</h3>
+                <pre class="signature">$_currency : string</pre>
+                <p><em>Currency code.</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__description" name="property__description" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$_description</h3>
+                <pre class="signature">$_description : string</pre>
+                <p><em>Currency description from API.</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/ABGEO.NBG.CurrencyDataTrait.html"><div class="path-wrapper">\ABGEO\NBG\CurrencyDataTrait</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__change" name="property__change" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$_change</h3>
+                <pre class="signature">$_change : double</pre>
+                <p><em>Currency change value from API.</em></p>
+                
+
+                                <h4>Type</h4>
+                double
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/ABGEO.NBG.CurrencyDataTrait.html"><div class="path-wrapper">\ABGEO\NBG\CurrencyDataTrait</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__rate" name="property__rate" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$_rate</h3>
+                <pre class="signature">$_rate : integer</pre>
+                <p><em>Currency change rate from API.</em></p>
+                <p>Values:
+-1 - decreased
+0 - unchanged
+1 - increased</p>
+
+                                <h4>Type</h4>
+                integer
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/ABGEO.NBG.CurrencyDataTrait.html"><div class="path-wrapper">\ABGEO\NBG\CurrencyDataTrait</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__date" name="property__date" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$_date</h3>
+                <pre class="signature">$_date : \DateTime</pre>
+                <p><em>Currency date from API.</em></p>
+                
+
+                                <h4>Type</h4>
+                \DateTime
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/ABGEO.NBG.CurrencyDataTrait.html"><div class="path-wrapper">\ABGEO\NBG\CurrencyDataTrait</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__API" name="property__API" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$_API</h3>
+                <pre class="signature">$_API : string</pre>
+                <p><em>NBG API url.</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__client" name="property__client" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$_client</h3>
+                <pre class="signature">$_client : \SoapClient</pre>
+                <p><em>SoapClient object.</em></p>
+                
+
+                                <h4>Type</h4>
+                \SoapClient
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getCurrency" name="method_getCurrency" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getCurrency()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getCurrency() : float</pre>
+                <p><em>Get Currency value.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    float
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/ABGEO.NBG.CurrencyDataTrait.html"><div class="path-wrapper">\ABGEO\NBG\CurrencyDataTrait</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getDescription" name="method_getDescription" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getDescription()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getDescription() : string</pre>
+                <p><em>Get Currency description.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>Currency description.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/ABGEO.NBG.CurrencyDataTrait.html"><div class="path-wrapper">\ABGEO\NBG\CurrencyDataTrait</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getChange" name="method_getChange" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getChange()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getChange() : float</pre>
+                <p><em>Get Currency change rate.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    float
+                                            &mdash; <p>Currency change rate.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/ABGEO.NBG.CurrencyDataTrait.html"><div class="path-wrapper">\ABGEO\NBG\CurrencyDataTrait</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getRate" name="method_getRate" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getRate()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getRate() : integer</pre>
+                <p><em>Get Currency change rate.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    integer
+                                            &mdash; <p>Currency change rate.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/ABGEO.NBG.CurrencyDataTrait.html"><div class="path-wrapper">\ABGEO\NBG\CurrencyDataTrait</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getDate" name="method_getDate" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getDate()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getDate() : \DateTime</pre>
+                <p><em>Get Currency date.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    \DateTime
+                                            &mdash; <p>Currency date.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/ABGEO.NBG.CurrencyDataTrait.html"><div class="path-wrapper">\ABGEO\NBG\CurrencyDataTrait</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct(string  <span class="argument">$currency</span>) </pre>
+                <p><em>Currency constructor.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$currency </td>
+                                <td><p>Currency code.</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\SoapFault</dt>
+                            <dd></dd>
+                                                    <dt>\ABGEO\NBG\Exception\InvalidCurrencyException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setCurrency" name="method_setCurrency" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">setCurrency()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setCurrency(float  <span class="argument">$currency</span>) : \ABGEO\NBG\CurrencyDataTrait</pre>
+                <p><em>Set Currency value.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>float</td>
+                                <td>$currency </td>
+                                <td><p>Currency value from API.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/ABGEO.NBG.CurrencyDataTrait.html">\ABGEO\NBG\CurrencyDataTrait</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/ABGEO.NBG.CurrencyDataTrait.html"><div class="path-wrapper">\ABGEO\NBG\CurrencyDataTrait</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setDescription" name="method_setDescription" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">setDescription()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setDescription(string  <span class="argument">$description</span>) : \ABGEO\NBG\CurrencyDataTrait</pre>
+                <p><em>Set Currency description.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$description </td>
+                                <td><p>Currency description from API.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/ABGEO.NBG.CurrencyDataTrait.html">\ABGEO\NBG\CurrencyDataTrait</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/ABGEO.NBG.CurrencyDataTrait.html"><div class="path-wrapper">\ABGEO\NBG\CurrencyDataTrait</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setChange" name="method_setChange" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">setChange()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setChange(float  <span class="argument">$change</span>) : \ABGEO\NBG\CurrencyDataTrait</pre>
+                <p><em>Set Currency change rate.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>float</td>
+                                <td>$change </td>
+                                <td><p>Currency change rate.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/ABGEO.NBG.CurrencyDataTrait.html">\ABGEO\NBG\CurrencyDataTrait</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/ABGEO.NBG.CurrencyDataTrait.html"><div class="path-wrapper">\ABGEO\NBG\CurrencyDataTrait</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setRate" name="method_setRate" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">setRate()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setRate(integer  <span class="argument">$rate</span>) : \ABGEO\NBG\CurrencyDataTrait</pre>
+                <p><em>Set Currency change rate.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$rate </td>
+                                <td><p>Currency change rate.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/ABGEO.NBG.CurrencyDataTrait.html">\ABGEO\NBG\CurrencyDataTrait</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/ABGEO.NBG.CurrencyDataTrait.html"><div class="path-wrapper">\ABGEO\NBG\CurrencyDataTrait</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setDate" name="method_setDate" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">setDate()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setDate(\DateTime  <span class="argument">$date</span>) : \ABGEO\NBG\CurrencyDataTrait</pre>
+                <p><em>Set Currency date.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\DateTime</td>
+                                <td>$date </td>
+                                <td><p>Currency date.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/ABGEO.NBG.CurrencyDataTrait.html">\ABGEO\NBG\CurrencyDataTrait</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/ABGEO.NBG.CurrencyDataTrait.html"><div class="path-wrapper">\ABGEO\NBG\CurrencyDataTrait</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method__init" name="method__init" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">_init()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">_init() : void</pre>
+                <p><em>Get data from API and fill CurrencyData object.</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">Currency.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/Currency.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/ABGEO.html">\ABGEO</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on July 17th, 2019 at 07:56.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>
