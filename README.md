@@ -6,7 +6,9 @@ PHP Library for getting data from [National Bank of Georgia (NBG)'s API](http://
 * Library on [Packagist](https://packagist.org/packages/abgeo/nbg-currency)
 
 [![GitHub license](https://img.shields.io/github/license/ABGEO07/nbg-currency.svg)](https://github.com/ABGEO07/nbg-currency/blob/master/LICENSE)
+
 [![GitHub release](https://img.shields.io/github/release/ABGEO07/nbg-currency.svg)](https://github.com/ABGEO07/nbg-currency/releases)
+
 [![Packagist Version](https://img.shields.io/packagist/v/abgeo/nbg-currency.svg "Packagist Version")](https://packagist.org/packages/abgeo/nbg-currency "Packagist Version")
 
 ---
