@@ -2,7 +2,7 @@
 /**
  * Trait CurrencyDataTrait | src/NBG/CurrencyDataTrait.php
  *
- * PHP version 5
+ * PHP version 7
  *
  * @category Library
  * @package  ABGEO\NBG

@@ -2,7 +2,7 @@
 /**
  * Class Currency | src/NBG/Currency.php
  *
- * PHP version 5
+ * PHP version 7
  *
  * @category Library
  * @package  ABGEO\NBG
