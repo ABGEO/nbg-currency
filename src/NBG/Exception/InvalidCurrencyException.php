@@ -1,6 +1,6 @@
 <?php
 /**
- * Class Currency | src/NBG/Currency.php
+ * Class InvalidCurrencyException | src/NBG/Exception/InvalidCurrencyException.php
  *
  * PHP version 5
  *

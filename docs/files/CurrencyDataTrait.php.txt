@@ -1,6 +1,6 @@
 <?php
 /**
- * Class Currency | src/NBG/Currency.php
+ * Trait CurrencyDataTrait | src/NBG/CurrencyDataTrait.php
  *
  * PHP version 5
  *
