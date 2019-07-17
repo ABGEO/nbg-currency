@@ -3,11 +3,11 @@
 namespace ABGEO\NBG;
 
 /**
- * Class CurrencyData
+ * Trait CurrencyDataTrait
  *
  * @package ABGEO\NBG
  */
-class CurrencyData
+trait CurrencyDataTrait
 {
     private $_currency;
 
@@ -18,7 +18,6 @@ class CurrencyData
     private $_rate;
 
     private $_date;
-
 
     protected function setCurrency($currency): self
     {
@@ -51,7 +50,7 @@ class CurrencyData
         return $this;
     }
 
-    public function isChanged()
+    public function getChange()
     {
         return $this->_change;
     }

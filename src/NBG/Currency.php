@@ -11,8 +11,10 @@ use SoapClient;
  *
  * @package ABGEO\NBG
  */
-class Currency extends CurrencyData
+class Currency
 {
+    use CurrencyDataTrait;
+
     private $_API = 'http://nbg.gov.ge/currency.wsdl';
 
     private $_client;
