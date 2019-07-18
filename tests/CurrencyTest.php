@@ -20,6 +20,9 @@ final class CurrencyTest extends TestCase
         new Currency('iAmInvalidCurrencyCode');
     }
 
+    /**
+     * @requires PHPUnit 8.x
+     */
     public function testDataTypes(): void
     {
         $currency = new Currency(Currency::CURRENCY_USD);
