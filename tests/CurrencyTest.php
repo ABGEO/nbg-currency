@@ -6,14 +6,14 @@ use PHPUnit\Framework\TestCase;
 
 final class CurrencyTest extends TestCase
 {
-    public function testCurrencyConstants(): void
+    public function testCurrencyConstants()
     {
         $this->assertEquals(Currency::CURRENCY_USD, 'USD');
         $this->assertEquals(Currency::CURRENCY_CHF, 'CHF');
         $this->assertEquals(Currency::CURRENCY_IRR, strtoupper('irr'));
     }
 
-    public function testInvalidCurrencyException(): void
+    public function testInvalidCurrencyException()
     {
         $this->expectException(InvalidCurrencyException::class);
 
