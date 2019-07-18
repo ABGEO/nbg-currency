@@ -20,21 +20,6 @@ final class CurrencyTest extends TestCase
         new Currency('iAmInvalidCurrencyCode');
     }
 
-    /**
-     * @requires PHPUnit 8.x
-     */
-    public function testDataTypes(): void
-    {
-        $currency = new Currency(Currency::CURRENCY_USD);
-
-        $this->assertIsFloat($currency->getCurrency());
-        $this->assertIsFloat($currency->getChange());
-        $this->assertIsString($currency->getDescription());
-        $this->assertIsInt($currency->getRate());
-        $this->assertTrue(in_array($currency->getRate(), [-1, 0, 1]));
-        $this->assertInstanceOf(DateTime::class, $currency->getDate());
-    }
-
     public function testCompareToRealApiData()
     {
         $currency = new Currency(Currency::CURRENCY_USD);
