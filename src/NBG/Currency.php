@@ -30,6 +30,7 @@ use SoapClient;
 class Currency
 {
     use CurrencyDataTrait;
+    use ExportTrait;
 
     /**
      * NBG API url.
@@ -95,6 +96,10 @@ class Currency
     const CURRENCY_UAH = 'UAH';
     const CURRENCY_USD = 'USD';
     const CURRENCY_UZS = 'UZS';
+
+    // Define Export types.
+    const EXPORT_2_FILE   = 1;
+    const EXPORT_2_STREAM = 2;
 
     /**
      * Currency constructor.
