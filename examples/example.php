@@ -28,3 +28,22 @@ echo "Description: \t{$RUB->getDescription()}\n";
 echo "Change: \t{$RUB->getChange()}\n";
 echo "Change Rate: \t{$RUB->getRate()}\n";
 echo "Date: \t\t{$RUB->getDate()->format('m/d/Y')}\n";
+
+// Export to CSV.
+
+// Export Single Currency.
+Currency::export(Currency::CURRENCY_USD, Currency::EXPORT_2_FILE, 'single.csv');
+
+// Export Many Currencies.
+
+// NOTE: Don't print anything before exporting to stream
+// coz we use header() function.
+Currency::export(
+    [
+        Currency::CURRENCY_USD,
+        Currency::CURRENCY_EUR,
+        Currency::CURRENCY_BGN,
+        Currency::CURRENCY_AMD
+    ],
+    Currency::EXPORT_2_STREAM
+);

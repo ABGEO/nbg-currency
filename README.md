@@ -112,6 +112,44 @@ echo "Change Rate: \t{$RUB->getRate()}\n";
 echo "Date: \t\t{$RUB->getDate()->format('m/d/Y')}\n";
 ```
 
+### Export
+
+The `Currency` Class has static method `export()` for exporting currency data to CSV file.  
+`export()` method takes 3 arguments:
+
+- currencies -  Single Currency Code or array;
+- exportMode [Optional][Default:  Currency::EXPORT_2_FILE] - Export Mode (1: To file; 2: To stream)  
+    You can use constants `EXPORT_2_FILE` and `EXPORT_2_STREAM`;
+- file [Optional][Default: currency-{current-date}.csv] - Filename to export.
+
+#### Export examples
+
+##### Export single currency
+
+```php
+...
+Currency::export(Currency::CURRENCY_USD, Currency::EXPORT_2_FILE, 'single.csv');
+...
+```
+
+
+##### Export many currencies
+
+```php
+...
+Currency::export(
+    [
+        Currency::CURRENCY_USD,
+        Currency::CURRENCY_EUR,
+        Currency::CURRENCY_BGN,
+        Currency::CURRENCY_AMD
+    ],
+    Currency::EXPORT_2_STREAM
+);
+...
+```
+**NOTE: Don't print anything before exporting to stream coz we use `header()` function.**
+
 ## Authors
 
 * **Temuri Takalandze** - *Initial work* - [ABGEO](https://abgeo.dev)
