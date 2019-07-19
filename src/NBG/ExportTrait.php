@@ -29,7 +29,7 @@ trait ExportTrait
      * Export Currency to file.
      *
      * @param mixed       $currencies Single Currency Code or array.
-     * @param int         $exportMode Export Mode (1: To file; 2: To stream)
+     * @param int         $exportMode Export Mode (1: To file; 2: To stream).
      * @param string|null $file       Filename.
      *
      * @return void
