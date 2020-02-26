@@ -1,5 +1,25 @@
 # nbg-currency
 
+## [v2.0.0] - 2020-02-26
+
+### Added
+
+- This CHANGELOG file to hopefully serve as an evolving example of a
+  standardized open source project CHANGELOG.
+- Github Actions Workflow.
+
+### Updated
+
+ - Readme and Documentation.
+ - Currency code constants moved from `ABGEO\NBG\Currency` to `ABGEO\NBG\Helper\CurrencyCodes` class.
+
+### Removed
+
+- Travis CI.
+
+### Improved
+- Code Structure.
+
 ## [v1.0.3] - 2019-07-19
 
 ### Added
