@@ -7,13 +7,6 @@ use PHPUnit\Framework\TestCase;
 
 final class CurrencyTest extends TestCase
 {
-    public function testCurrencyConstants()
-    {
-        $this->assertEquals(CurrencyCodes::USD, 'USD');
-        $this->assertEquals(CurrencyCodes::CHF, 'CHF');
-        $this->assertEquals(CurrencyCodes::IRR, strtoupper('irr'));
-    }
-
     public function testInvalidCurrencyException()
     {
         $this->expectException(InvalidCurrencyException::class);
@@ -21,15 +14,32 @@ final class CurrencyTest extends TestCase
         new Currency('iAmInvalidCurrencyCode');
     }
 
-    public function testCompareToRealApiData()
+    public function testCurrencyConstants()
     {
-        $currency = new Currency(CurrencyCodes::USD);
-        $client = new SoapClient('http://nbg.gov.ge/currency.wsdl');
+        $this->assertEquals(CurrencyCodes::USD, 'USD');
+        $this->assertEquals(CurrencyCodes::CHF, 'CHF');
+        $this->assertEquals(CurrencyCodes::IRR, strtoupper('irr'));
+    }
 
-        $this->assertEquals($currency->getCurrency(), $client->GetCurrency('USD'));
-        $this->assertEquals($currency->getDescription(), $client->GetCurrencyDescription('USD'));
-        $this->assertEquals($currency->getChange(), $client->GetCurrencyChange('USD'));
-        $this->assertEquals($currency->getRate(), $client->GetCurrencyRate('USD'));
-        $this->assertEquals($currency->getDate()->format('Y-m-d'), $client->GetDate('USD'));
+    public function testCurrencyModelGettersAndSetters()
+    {
+        $currencyAmount = 1.1;
+        $currencyDescription = 'Description';
+        $currencyChange = 1.1;
+        $currencyRate = -1;
+        $currencyDate = new DateTime();
+
+        $currency = (new \ABGEO\NBG\Model\Currency())
+            ->setCurrency($currencyAmount)
+            ->setDescription($currencyDescription)
+            ->setChange($currencyChange)
+            ->setRate($currencyRate)
+            ->setDate($currencyDate);
+
+        $this->assertEquals($currencyAmount, $currency->getCurrency());
+        $this->assertEquals($currencyDescription, $currency->getDescription());
+        $this->assertEquals($currencyChange, $currency->getChange());
+        $this->assertEquals($currencyRate, $currency->getRate());
+        $this->assertEquals($currencyDate, $currency->getDate());
     }
 }
