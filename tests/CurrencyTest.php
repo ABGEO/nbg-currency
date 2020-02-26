@@ -2,15 +2,16 @@
 
 use ABGEO\NBG\Currency;
 use ABGEO\NBG\Exception\InvalidCurrencyException;
+use ABGEO\NBG\Helper\CurrencyCodes;
 use PHPUnit\Framework\TestCase;
 
 final class CurrencyTest extends TestCase
 {
     public function testCurrencyConstants()
     {
-        $this->assertEquals(Currency::CURRENCY_USD, 'USD');
-        $this->assertEquals(Currency::CURRENCY_CHF, 'CHF');
-        $this->assertEquals(Currency::CURRENCY_IRR, strtoupper('irr'));
+        $this->assertEquals(CurrencyCodes::USD, 'USD');
+        $this->assertEquals(CurrencyCodes::CHF, 'CHF');
+        $this->assertEquals(CurrencyCodes::IRR, strtoupper('irr'));
     }
 
     public function testInvalidCurrencyException()
@@ -22,7 +23,7 @@ final class CurrencyTest extends TestCase
 
     public function testCompareToRealApiData()
     {
-        $currency = new Currency(Currency::CURRENCY_USD);
+        $currency = new Currency(CurrencyCodes::USD);
         $client = new SoapClient('http://nbg.gov.ge/currency.wsdl');
 
         $this->assertEquals($currency->getCurrency(), $client->GetCurrency('USD'));

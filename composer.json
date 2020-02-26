@@ -27,7 +27,7 @@
   },
   "autoload": {
     "psr-4": {
-      "ABGEO\\": "src/"
+      "ABGEO\\NBG\\": "src/"
     }
   }
 }
