@@ -23,7 +23,7 @@ use SoapFault;
 class Exporter
 {
     const EXPORT_2_FILE   = 1;
-    const Exporter::EXPORT_2_FILE = 2;
+    const EXPORT_2_STREAM = 2;
 
     /**
      * Export Currency to file.
