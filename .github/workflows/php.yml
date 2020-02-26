@@ -19,15 +19,13 @@ jobs:
       uses: shivammathur/setup-php@v2
       with:
         php-version: ${{ matrix.php-versions }}
-
-    - name: Check PHP Version
-      run: php -v
+        tools: phpunit
 
     - name: Validate composer.json and composer.lock
       run: composer validate
 
     - name: Install dependencies
-      run: composer install --prefer-dist --no-progress --no-suggest
+      run: composer install --prefer-dist --no-progress --no-suggest --no-dev
 
     - name: Run test suite
-      run: ./vendor/bin/phpunit
+      run: phpunit
