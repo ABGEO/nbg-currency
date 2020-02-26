@@ -7,25 +7,24 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php-versions: ['5.6', '7.0', '7.1', '7.2', '7.3', '7.4']
+        php-versions: ['7.1', '7.2', '7.3', '7.4']
 
-    name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }}
+    name: PHP ${{ matrix.php-versions }}
 
     steps:
     - name: Checkout
       uses: actions/checkout@v2
 
     - name: Install PHP
-      uses: shivammathur/setup-php@v2
+      uses: shivammathur/setup-php@2.0.2
       with:
         php-version: ${{ matrix.php-versions }}
-        tools: phpunit
 
     - name: Validate composer.json and composer.lock
       run: composer validate
 
     - name: Install dependencies
-      run: composer install --prefer-dist --no-progress --no-suggest --no-dev
+      run: composer install --no-progress --no-suggest
 
     - name: Run test suite
-      run: phpunit
+      run: ./vendor/bin/phpunit
