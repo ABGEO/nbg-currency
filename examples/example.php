@@ -1,19 +1,20 @@
 <?php
 
 // Include Composer Autoloader.
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__.'/../vendor/autoload.php';
 
 // Import namespace.
 use ABGEO\NBG\Currency;
+use ABGEO\NBG\Exporter;
+use ABGEO\NBG\Helper\CurrencyCodes;
 
-// Create new Currency class object for USD Currency.
-$USD = new Currency(Currency::CURRENCY_USD);
-// Create new Currency class object for RUB Currency.
-$RUB = new Currency(Currency::CURRENCY_RUB);
+// Create new Currency class object for USD and EUR Currencies.
+$USD = new Currency(CurrencyCodes::USD);
+$EUR = new Currency(CurrencyCodes::EUR);
 
 // Print results.
 
-echo "UDS: \n\n";
+echo "USD: \n\n";
 echo "Currency: \t{$USD->getCurrency()}\n";
 echo "Description: \t{$USD->getDescription()}\n";
 echo "Change: \t{$USD->getChange()}\n";
@@ -22,28 +23,26 @@ echo "Date: \t\t{$USD->getDate()->format('m/d/Y')}\n";
 
 echo "\n------------------------------------------\n\n";
 
-echo "RUB: \n\n";
-echo "Currency: \t{$RUB->getCurrency()}\n";
-echo "Description: \t{$RUB->getDescription()}\n";
-echo "Change: \t{$RUB->getChange()}\n";
-echo "Change Rate: \t{$RUB->getRate()}\n";
-echo "Date: \t\t{$RUB->getDate()->format('m/d/Y')}\n";
-
-// Export to CSV.
+echo "EUR: \n\n";
+echo "Currency: \t{$EUR->getCurrency()}\n";
+echo "Description: \t{$EUR->getDescription()}\n";
+echo "Change: \t{$EUR->getChange()}\n";
+echo "Change Rate: \t{$EUR->getRate()}\n";
+echo "Date: \t\t{$EUR->getDate()->format('m/d/Y')}\n";
 
 // Export Single Currency.
-Currency::export(Currency::CURRENCY_USD, Currency::EXPORT_2_FILE, 'single.csv');
+Exporter::export(CurrencyCodes::USD, Exporter::EXPORT_2_FILE, 'single.csv');
 
 // Export Many Currencies.
 
 // NOTE: Don't print anything before exporting to stream
 // coz we use header() function.
-Currency::export(
+Exporter::export(
     [
-        Currency::CURRENCY_USD,
-        Currency::CURRENCY_EUR,
-        Currency::CURRENCY_BGN,
-        Currency::CURRENCY_AMD
+        CurrencyCodes::USD,
+        CurrencyCodes::EUR,
+        CurrencyCodes::BGN,
+        CurrencyCodes::AMD,
     ],
-    Currency::EXPORT_2_STREAM
+    Exporter::EXPORT_2_STREAM
 );

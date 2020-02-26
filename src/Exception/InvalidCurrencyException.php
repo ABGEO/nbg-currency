@@ -1,14 +1,11 @@
 <?php
 /**
- * Class InvalidCurrencyException | src/NBG/Exception/InvalidCurrencyException.php
+ * Class InvalidCurrencyException | src/Exception/InvalidCurrencyException.php
  *
- * PHP version 5
- *
- * @category Library
- * @package  ABGEO\NBG
+ * @category Exception
+ * @package  ABGEO\NBG\Exception
  * @author   Temuri Takalandze <takalandzet@gmail.com>
  * @license  MIT https://github.com/ABGEO07/nbg-currency/blob/master/LICENSE
- * @version  GIT: $Id$.
  * @link     https://github.com/ABGEO07/nbg-currency
  */
 
@@ -18,21 +15,16 @@ use Exception;
 
 /**
  * Class InvalidCurrencyException
- *
- * @category Library
- * @package  ABGEO\NBG
- * @author   Temuri Takalandze <takalandzet@gmail.com>
- * @license  MIT https://github.com/ABGEO07/nbg-currency/blob/master/LICENSE
- * @link     https://github.com/ABGEO07/nbg-currency
+ * @package ABGEO\NBG\Exception
  */
-class InvalidCurrencyException extends \Exception
+class InvalidCurrencyException extends Exception
 {
     /**
      * InvalidCurrencyException constructor.
      *
      * @param string     $currency Invalid currency code.
      * @param int        $code     [optional] The Exception code.
-     * @param \Exception $previous [optional] The previous throwable
+     * @param Exception $previous [optional] The previous throwable
      *                             used for the exception chaining.
      */
     public function __construct($currency, $code = 0, Exception $previous = null)

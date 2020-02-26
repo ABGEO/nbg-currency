@@ -1,6 +1,6 @@
 <?php
 /**
- * Trait ExportTrait | src/NBG/ExportTrait.php
+ * Class Exporter | src/Exporter.php
  *
  * PHP version 7
  *
@@ -8,23 +8,23 @@
  * @package  ABGEO\NBG
  * @author   Temuri Takalandze <takalandzet@gmail.com>
  * @license  MIT https://github.com/ABGEO07/nbg-currency/blob/master/LICENSE
- * @version  GIT: $Id$.
  * @link     https://github.com/ABGEO07/nbg-currency
  */
 
 namespace ABGEO\NBG;
 
+use ABGEO\NBG\Exception\InvalidCurrencyException;
+use SoapFault;
+
 /**
- * Trait ExportTrait
- *
- * @category Library
- * @package  ABGEO\NBG
- * @author   Temuri Takalandze <takalandzet@gmail.com>
- * @license  MIT https://github.com/ABGEO07/nbg-currency/blob/master/LICENSE
- * @link     https://github.com/ABGEO07/nbg-currency
+ * Class Exporter
+ * @package ABGEO\NBG
  */
-trait ExportTrait
+class Exporter
 {
+    const EXPORT_2_FILE   = 1;
+    const EXPORT_2_STREAM = 2;
+
     /**
      * Export Currency to file.
      *
@@ -34,12 +34,12 @@ trait ExportTrait
      *
      * @return void
      *
-     * @throws Exception\InvalidCurrencyException
-     * @throws \SoapFault
+     * @throws InvalidCurrencyException
+     * @throws SoapFault
      */
     public static function export(
         $currencies,
-        int $exportMode = Currency::EXPORT_2_FILE,
+        int $exportMode = self::EXPORT_2_FILE,
         string $file = null
     ): void {
         // CSV Header.
@@ -91,7 +91,7 @@ trait ExportTrait
             ? $fileName: $fileName . '.csv';
 
         // Export CSV.
-        if (1 == $exportMode) {
+        if (self::EXPORT_2_FILE === $exportMode) {
             // Export to file.
 
             $fs = fopen($fileName, "w");
@@ -101,7 +101,7 @@ trait ExportTrait
             }
 
             fclose($fs);
-        } else if (2 == $exportMode) {
+        } elseif (self::EXPORT_2_STREAM === $exportMode) {
             // Export to stream.
 
             $fs = fopen('php://output', 'w');
