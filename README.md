@@ -27,25 +27,24 @@ You can install this library with [Composer](https://getcomposer.org/):
 
 Include composer autoloader in your main file (Ex.: index.php)
 
-- `require_once __DIR__ . '/../vendor/autoload.php';`
+- `require_once __DIR__.'/../vendor/autoload.php';`
 
-Import `ABGEO\NBG\Currency` Namespace:
+Import Classes:
 
 - `use ABGEO\NBG\Currency;`
+- `use ABGEO\NBG\Helper\CurrencyCodes;`
 
 Now you can create new `Currency` Class object ex. for `USD` currency:
 
-- `$USD = new Currency(Currency::CURRENCY_USD);`
+- `$USD = new Currency(CurrencyCodes::USD);`
 
-The `Currency` class constructor has a single argument, the Currency Code. You can pass it manually or using class constants:
+The `Currency` class constructor takes a single argument - the Currency Code.
+You can pass it manually (ISO 4217) or using `ABGEO\NBG\Helper\CurrencyCodes` class constants:
 
 ```text
-CURRENCY_AED, CURRENCY_AMD, CURRENCY_AUD, CURRENCY_AZN, CURRENCY_BGN, CURRENCY_BYR, CURRENCY_CAD, 
-CURRENCY_CHF, CURRENCY_CNY, CURRENCY_CZK, CURRENCY_DKK, CURRENCY_EEK, CURRENCY_EGP, CURRENCY_EUR, 
-CURRENCY_GBP, CURRENCY_HKD, CURRENCY_HUF, CURRENCY_ILS, CURRENCY_INR, CURRENCY_IRR, CURRENCY_ISK, 
-CURRENCY_JPY, CURRENCY_KGS, CURRENCY_KWD, CURRENCY_KZT, CURRENCY_LTL, CURRENCY_LVL, CURRENCY_MDL, 
-CURRENCY_NOK, CURRENCY_NZD, CURRENCY_PLN, CURRENCY_RON, CURRENCY_RSD, CURRENCY_RUB, CURRENCY_SEK, 
-CURRENCY_SGD, CURRENCY_TJS, CURRENCY_TMT, CURRENCY_TRY, CURRENCY_UAH, CURRENCY_USD, CURRENCY_UZS.
+AED, AMD, AUD, AZN, BGN, BYR, CAD, CHF, CNY, CZK, DKK, EEK, EGP, EUR, 
+GBP, HKD, HUF, ILS, INR, IRR, ISK, JPY, KGS, KWD, KZT, LTL, LVL, MDL, 
+NOK, NZD, PLN, RON, RSD, RUB, SEK, SGD, TJS, TMT, TRY, UAH, USD, UZS.
 ```
 
 After creating a class object, we can get currency data.  
@@ -65,6 +64,8 @@ The API gives us:
 - `getRate()` - Get Currency Change rate;
 - `getDate()` - Get Currency Date;
 
+## Examples
+
 ### Example for USD
 
 ```php
@@ -77,25 +78,25 @@ echo "Date: \t\t{$USD->getDate()->format('m/d/Y')}\n";
 ...
 ```
 
-### Full example with USD and RUB
+### Full example with USD and EUR
 
 ```php
 <?php
 
 // Include Composer Autoloader.
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__.'/../vendor/autoload.php';
 
 // Import namespace.
 use ABGEO\NBG\Currency;
+use ABGEO\NBG\Helper\CurrencyCodes;
 
-// Create new Currency class object for USD Currency.
-$USD = new Currency(Currency::CURRENCY_USD);
-// Create new Currency class object for RUB Currency.
-$RUB = new Currency(Currency::CURRENCY_RUB);
+// Create new Currency class object for USD and EUR Currencies.
+$USD = new Currency(CurrencyCodes::USD);
+$EUR = new Currency(CurrencyCodes::EUR);
 
 // Print results.
 
-echo "UDS: \n\n";
+echo "USD: \n\n";
 echo "Currency: \t{$USD->getCurrency()}\n";
 echo "Description: \t{$USD->getDescription()}\n";
 echo "Change: \t{$USD->getChange()}\n";
@@ -104,22 +105,23 @@ echo "Date: \t\t{$USD->getDate()->format('m/d/Y')}\n";
 
 echo "\n------------------------------------------\n\n";
 
-echo "RUB: \n\n";
-echo "Currency: \t{$RUB->getCurrency()}\n";
-echo "Description: \t{$RUB->getDescription()}\n";
-echo "Change: \t{$RUB->getChange()}\n";
-echo "Change Rate: \t{$RUB->getRate()}\n";
-echo "Date: \t\t{$RUB->getDate()->format('m/d/Y')}\n";
+echo "EUR: \n\n";
+echo "Currency: \t{$EUR->getCurrency()}\n";
+echo "Description: \t{$EUR->getDescription()}\n";
+echo "Change: \t{$EUR->getChange()}\n";
+echo "Change Rate: \t{$EUR->getRate()}\n";
+echo "Date: \t\t{$EUR->getDate()->format('m/d/Y')}\n";
 ```
 
 ### Export
 
-The `Currency` Class has static method `export()` for exporting currency data to CSV file.  
-`export()` method takes 3 arguments:
+You can use `ABGEO\NBG\Exporter` Class for exporting currency data to CSV file or PHP Stream output.  
+`ABGEO\NBG\Exporter` class has `export()` method that takes 3 arguments:
 
 - currencies -  Single Currency Code or array;
-- exportMode [Optional][Default:  Currency::EXPORT_2_FILE] - Export Mode (1: To file; 2: To stream)  
-    You can use constants `EXPORT_2_FILE` and `EXPORT_2_STREAM`;
+- exportMode [Optional][Default:  Exporter::EXPORT_2_FILE] 
+    - Exporter::EXPORT_2_FILE(1) - To file;
+    - Exporter::Exporter::EXPORT_2_FILE(2) -  To stream;
 - file [Optional][Default: currency-{current-date}.csv] - Filename to export.
 
 #### Export examples
@@ -128,7 +130,7 @@ The `Currency` Class has static method `export()` for exporting currency data to
 
 ```php
 ...
-Currency::export(Currency::CURRENCY_USD, Currency::EXPORT_2_FILE, 'single.csv');
+Exporter::export(CurrencyCodes::USD, Exporter::EXPORT_2_FILE, 'single.csv');
 ...
 ```
 
@@ -137,14 +139,14 @@ Currency::export(Currency::CURRENCY_USD, Currency::EXPORT_2_FILE, 'single.csv');
 
 ```php
 ...
-Currency::export(
+Exporter::export(
     [
-        Currency::CURRENCY_USD,
-        Currency::CURRENCY_EUR,
-        Currency::CURRENCY_BGN,
-        Currency::CURRENCY_AMD
+        CurrencyCodes::USD,
+        CurrencyCodes::EUR,
+        CurrencyCodes::BGN,
+        CurrencyCodes::AMD,
     ],
-    Currency::EXPORT_2_STREAM
+    Exporter::EXPORT_2_STREAM
 );
 ...
 ```

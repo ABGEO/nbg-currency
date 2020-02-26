@@ -1,0 +1,182 @@
+<?php
+/**
+ * Model Currency | src/Model/Currency.php
+ *
+ * @category Model
+ * @package  ABGEO\NBG\Model
+ * @author   Temuri Takalandze <takalandzet@gmail.com>
+ * @license  MIT https://github.com/ABGEO07/nbg-currency/blob/master/LICENSE
+ * @link     https://github.com/ABGEO07/nbg-currency
+ */
+
+namespace ABGEO\NBG\Model;
+
+use DateTime;
+
+/**
+ * Class Currency
+ * @package ABGEO\NBG\Model
+ */
+class Currency
+{
+    /**
+     * Currency Value from API.
+     *
+     * @var float
+     */
+    private $currency;
+
+    /**
+     * Currency Description from API.
+     *
+     * @var string
+     */
+    private $description;
+
+    /**
+     * Currency Change Value from API.
+     *
+     * @var double
+     */
+    private $change;
+
+    /**
+     * Currency Change Rate from API.
+     *
+     * Values:
+     *      -1 - decreased
+     *      0 - unchanged
+     *      1 - increased
+     *
+     * @var int
+     */
+    private $rate;
+
+    /**
+     * Currency date from API.
+     *
+     * @var DateTime
+     */
+    private $date;
+
+    /**
+     * Set Currency Value.
+     *
+     * @param float $currency Currency Value from API.
+     *
+     * @return Currency
+     */
+    public function setCurrency(float $currency): self
+    {
+        $this->currency = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Get Currency Value.
+     *
+     * @return float
+     */
+    public function getCurrency(): float
+    {
+        return $this->currency;
+    }
+
+    /**
+     * Set Currency Description.
+     *
+     * @param string $description Currency Description from API.
+     *
+     * @return Currency
+     */
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get Currency Description.
+     *
+     * @return string Currency Description.
+     */
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set Currency Change Value.
+     *
+     * @param float $change Currency Change Value.
+     *
+     * @return Currency
+     */
+    public function setChange(float $change): self
+    {
+        $this->change = $change;
+
+        return $this;
+    }
+
+    /**
+     * Get Currency Change Value.
+     *
+     * @return float Currency Change Value.
+     */
+    public function getChange(): float
+    {
+        return $this->change;
+    }
+
+    /**
+     * Set Currency Change Rate.
+     *
+     * @param int $rate Currency Change Rate.
+     *
+     * @return Currency
+     */
+    public function setRate(int $rate): self
+    {
+        $this->rate = $rate;
+
+        return $this;
+    }
+
+    /**
+     * Get Currency change rate.
+     *
+     * @return int Currency change rate.
+     */
+    public function getRate(): int
+    {
+        return $this->rate;
+    }
+
+    /**
+     * Set Currency date.
+     *
+     * @param DateTime $date Currency date.
+     *
+     * @return Currency
+     */
+    public function setDate(DateTime $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get Currency date.
+     *
+     * @return DateTime Currency date.
+     */
+    public function getDate(): DateTime
+    {
+        return $this->date;
+    }
+}
+
